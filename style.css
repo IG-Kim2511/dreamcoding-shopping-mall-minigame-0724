@@ -6,8 +6,92 @@
   --color-yellow: #fbbe28;
   --color-pink: #fd7f84;
   --color-light-grey: #dfdfdf;
+  /* size */
+  --size-border: 3px;
+  --base-space: 8px;
+  --size-button: 60px;
+
+  --button-font-size: 18px;
+
+  --size-thumbnail: 40px;
+
+  /* animation */
+  --animation-duration: 300ms;
 }
 
 * {
   box-sizing: border-box;
+}
+
+body {
+  /* T: 전체 height가 낮아서, 아이템들이 화면위에 몰려있음 (원래설정의 낮은 height에서의 중간임) , 그래서 전체 height를 100%로 늘림*/
+  height: 100vh;
+  background-color: var(--color-black);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  cursor: pointer;
+  transition: transform var(--animation-duration) ease;
+}
+.logo:hover {
+  transform: scale(1.1);
+}
+.btn {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: transform var(--animation-duration) ease;
+  margin-right: var(--base-space);
+}
+
+.btn:hover,
+.logo:hover {
+  transform: scale(1.1);
+}
+.buttons {
+  display: flex;
+  align-items: center;
+}
+
+.imgBtn {
+  width: var(--size-button);
+  height: var(--size-button);
+}
+.colorBtn {
+  font-size: var(--button-font-size);
+  padding: clac(var(--base-space) * 2);
+  border-radius: var(--size-border);
+}
+.blue {
+  background-color: var(--color-blue);
+}
+.yellow {
+  background-color: var(--color-yellow);
+}
+.pink {
+  background-color: var(--color-pink);
+}
+
+.items {
+  width: 60%;
+  height: 60%;
+  list-style: none;
+  padding-left: 0;
+  /*T:  items컨테이너 안에서 스크롤링 되게 하기 */
+  overflow-y: scroll;
+}
+.item {
+  background-color: var(--color-white);
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.item__thumbnail {
+  width: var(--size-thumbnail);
+  height: var(--size-thumbnail);
 }
